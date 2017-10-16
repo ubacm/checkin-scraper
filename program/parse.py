@@ -22,10 +22,10 @@ try:
                         contributers[name]=1
 
     with open('people.csv', 'w') as csvfile:
+        sortedList = sorted(contributers.items(), key=lambda tup: tup[1], reverse=True)
         wr = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-        for person, count in contributers.items():
+        for person, count in sortedList:
             wr.writerow([person, count])
     print(len(contributers))
-    print(directory_name)
 except Exception as e:
     print("Pass in a directory as a parameter")
