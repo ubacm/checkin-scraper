@@ -28,4 +28,4 @@ try:
     print(len(contributers))
     print(directory_name)
 except Exception as e:
-    logger.error('Exception occured: ' + str(e))
+    print("Pass in a directory as a parameter")
