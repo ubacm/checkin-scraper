@@ -21,9 +21,10 @@ try:
                     else:
                         contributers[name]=1
 
-    with open('people.csv', 'w') as csvfile:
+    with open('scores.csv', 'w+') as csvfile:
         sortedList = sorted(contributers.items(), key=lambda tup: tup[1], reverse=True)
         wr = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        wr.writerow(["name", "score"])
         for person, count in sortedList:
             wr.writerow([person, count])
     print(len(contributers))
