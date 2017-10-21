@@ -12,6 +12,11 @@ try:
         fileLocations = sys.argv[1:]
     
     for index, path in enumerate(fileLocations):
+        if "hack" in path:
+            # Adds modifier to 1 when adding values
+            modifier = 1
+        else:
+            modifier = 0
         for subdir, dirs, files in os.walk(os.path.abspath(path)):
             for noAbsFile in files:
                 file = os.path.join(subdir, noAbsFile)
@@ -23,10 +28,10 @@ try:
 
                     for (name) in re.findall(regex, text):
                         if name in contributers:
-                            contributers[name][index]+=1
+                            contributers[name][index]+=(1 + modifier)
                         else:
                             contributers[name]=[0] * (len(fileLocations))
-                            contributers[name][index]+=1
+                            contributers[name][index]+=(1 + modifier)
 
     with open('scores.csv', 'w+') as csvfile:
         sortedList = sorted(contributers.items(), key=lambda tup: tup[1], reverse=True)
