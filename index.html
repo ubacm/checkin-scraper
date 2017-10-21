@@ -40,6 +40,7 @@
     <table id="expoTable">
       <thead>
         <tr>
+            <th class="name">Index</th>
           {{#meta.fields}}
             <th class="name">{{.}}</th>
           {{/meta.fields}}
@@ -47,13 +48,14 @@
       </thead>
       <tbody class="list">
         {{#data}}
-          
           <tr>
-              <td class="name">{{name}}</td>
-              <td class="name">{{score}}</td>
-              <td class="name">{{hackscore}}</td>
-              <td class="name">{{total}}</td>
-            </tr>
+            <td class="name">{{rating}}</td>              
+            <td class="name">{{name}}</td>
+            <td class="name">{{name}}</td>
+            <td class="name">{{score}}</td>
+            <td class="name">{{hackscore}}</td>
+            <td class="name">{{total}}</td>
+          </tr>
         {{/data}}
       </tbody>
     </table>
@@ -84,9 +86,6 @@
           var template = $('#template').html();
           Mustache.parse(template);
           console.log(results);
-
-          const toDelete = new Set(['sirhype', 'angus', 'sjames5', 'rshanule', 'liam', 'arthur', 'brijesh', 'daniel_connolly', 'daviddob', 'liesel', 'mklein5', 'wguo24']);
-          results.data = results.data.filter(obj => !toDelete.has(obj.name));
 
           var rendered = Mustache.render(template, results);
           //console.log(rendered);

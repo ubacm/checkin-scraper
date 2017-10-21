@@ -4,6 +4,8 @@ regex = re.compile(r"\@([a-z0-9][a-z0-9._-]*)")
 contributers = {}
 fileCount = 0
 fileLocations = []
+executives = ['sirhype', 'angus', 'sjames5', 'rshanule', 'liam', 'arthur', 'brijesh', 'daniel_connolly', 'daviddob', 'liesel', 'mklein5', 'wguo24']
+
 try:
     if len(sys.argv) == 1:
         fileLocations.append("checkins/")
@@ -38,14 +40,17 @@ try:
         wr = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         titleArray = ["name", "score", "hackscore", "total"]
         wr.writerow(titleArray)
+        ratingIndex = 1
         for person, counts in sortedList:
-            total = 0
-            rowArray = [person]
-            for count in counts:
-                total += count
-                rowArray.append(count)
-            rowArray.append(total)
-            wr.writerow(rowArray)
+            if person not in executives:
+                total = 0
+                rowArray = [ratingIndex, person]
+                for count in counts:
+                    total += count
+                    rowArray.append(count)
+                rowArray.append(total)
+                wr.writerow(rowArray)
+                ratingIndex+=1
     print("Scores from " + str(len(contributers)) + " different members addeds")
 except Exception as e:
     print(e.message)
