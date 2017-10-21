@@ -38,7 +38,7 @@ try:
     with open('scores.csv', 'w+') as csvfile:
         sortedList = sorted(contributers.items(), key=lambda tup: tup[1], reverse=True)
         wr = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-        titleArray = ["name", "score", "hackscore", "total"]
+        titleArray = ["rating", "name", "score", "hackscore", "total"]
         wr.writerow(titleArray)
         ratingIndex = 1
         for person, counts in sortedList:
