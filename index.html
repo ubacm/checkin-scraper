@@ -47,6 +47,7 @@
       </thead>
       <tbody class="list">
         {{#data}}
+          
           <tr>
               <td class="name">{{name}}</td>
               <td class="name">{{score}}</td>
@@ -83,6 +84,10 @@
           var template = $('#template').html();
           Mustache.parse(template);
           console.log(results);
+
+          const toDelete = new Set(['sirhype', 'angus', 'sjames5', 'rshanule', 'liam', 'arthur', 'brijesh', 'daniel_connolly', 'daviddob', 'liesel', 'mklein5', 'wguo24']);
+          results.data = results.data.filter(obj => !toDelete.has(obj.name));
+
           var rendered = Mustache.render(template, results);
           //console.log(rendered);
           $('#fullTable').html(rendered);
