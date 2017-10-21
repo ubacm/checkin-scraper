@@ -36,7 +36,6 @@ try:
                             contributers[name][index]+=(1 + modifier)
 
     with open('scores.csv', 'w+') as csvfile:
-        print(contributers)
         sortedList = sorted(contributers.items(), key=lambda i: sum(i[1]), reverse=True)
         wr = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         titleArray = ["rating", "name", "score", "hackscore", "total"]
