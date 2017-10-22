@@ -4,7 +4,7 @@ regex = re.compile(r"\@([a-z0-9][a-z0-9._-]*)")
 contributers = {}
 fileCount = 0
 fileLocations = []
-executives = ['sirhype', 'angus', 'sjames5', 'rshanule', 'liam', 'arthur', 'brijesh', 'daniel_connolly', 'daviddob', 'liesel', 'mklein5', 'wguo24']
+executives = ['sirhype', 'angus', 'sjames5', 'rshanule', 'liam', 'arthur', 'brijesh', 'daniel_connolly', 'daviddob', 'liesel', 'mklein5', 'wguo24', 'pagottes']
 
 try:
     if len(sys.argv) == 1:
