@@ -3,6 +3,7 @@ $(document).ready(function () {
         var filterNames = $(this).val();
         if (filterNames == "") {
             $('tr').show();
+            fixAlternating();
             return;
         }
         var matches = filterNames.match(/\@([a-z0-9][a-z0-9._-]*)/g)
@@ -11,10 +12,7 @@ $(document).ready(function () {
             hideAllButHere(matches);
         }
 
-        $("table tbody").each(function () {
-            $(this).find("tr:visible:even").addClass("even").removeClass("odd");
-            $(this).find("tr:visible:odd").addClass("odd").removeClass("even");
-        });
+        fixAlternating();
     });
 
     function hideAllButHere(names) {
@@ -28,3 +26,10 @@ $(document).ready(function () {
         });
     }
 });
+
+function fixAlternating() {
+    $("table tbody").each(function () {
+        $(this).find("tr:visible:even").addClass("even").removeClass("odd");
+        $(this).find("tr:visible:odd").addClass("odd").removeClass("even");
+    });
+}
