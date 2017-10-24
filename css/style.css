@@ -14,9 +14,8 @@ table {
   border-collapse: collapse;
 }
 
-tbody tr:nth-child(odd) {
-  background-color: #F0F0F0;
-
+.even {
+  background-color: #F0F0F0 !important;
 }
 
 th, td {
